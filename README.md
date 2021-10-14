@@ -7,24 +7,24 @@ Clone the repo
 <!-- #default-branch-switch -->
 
 ```sh
-curl https://codeload.github.com/mui-org/material-ui/tar.gz/master | tar -xz --strip=2  material-ui-master/examples/nextjs
-cd nextjs
+git clone https://github.com/tienhoangvo/mui_nextjs_boilerplate.git
+cd mui_nextjs_boilerplate
 ```
 
 Install it and run:
 
 ```sh
-npm install
-npm run dev
+yarn install
+yarn dev
 ```
 
 or:
 
 <!-- #default-branch-switch -->
 
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/mui-org/material-ui/tree/master/examples/nextjs)
-
 ## The idea behind the example
+
+This project is based on the the example project of the MUI's dev team.
 
 The project uses [Next.js](https://github.com/zeit/next.js), which is a framework for server-rendered React apps.
 It includes `@mui/material` and its peer dependencies, including `emotion`, the default style engine in MUI v5.
