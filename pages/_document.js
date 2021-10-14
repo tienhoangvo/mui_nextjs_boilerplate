@@ -1,3 +1,6 @@
+// react
+import { Children } from "react";
+
 // next
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
@@ -82,9 +85,6 @@ MyDocument.getInitialProps = async (ctx) => {
   return {
     ...initialProps,
     // Styles fragment is rendered after the app and page rendering finish.
-    styles: [
-      ...React.Children.toArray(initialProps.styles),
-      ...emotionStyleTags,
-    ],
+    styles: [...Children.toArray(initialProps.styles), ...emotionStyleTags],
   };
 };

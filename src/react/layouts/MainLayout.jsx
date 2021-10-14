@@ -9,7 +9,7 @@ const MainLayout = ({ children }) => {
         </Toolbar>
       </AppBar>
 
-      <Container maxWidth="sm" component="main">
+      <Container maxWidth="sm" component="main" sx={{ pt: 2 }}>
         <Toolbar />
         {children}
       </Container>

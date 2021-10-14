@@ -1,16 +1,38 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import { useRouter } from 'next/router';
-import NextLink from 'next/link';
-import MuiLink from '@mui/material/Link';
-import { styled } from '@mui/material/styles';
+// react
+import { forwardRef } from "react";
+
+// prop-types
+import PropTypes from "prop-types";
+
+// clsx
+import clsx from "clsx";
+
+// next
+import { useRouter } from "next/router";
+import NextLink from "next/link";
+
+// @mui/material
+import MuiLink from "@mui/material/Link";
+import { styled } from "@mui/material/styles";
 
 // Add support for the sx prop for consistency with the other branches.
-const Anchor = styled('a')({});
+const Anchor = styled("a")({});
 
-export const NextLinkComposed = React.forwardRef(function NextLinkComposed(props, ref) {
-  const { to, linkAs, href, replace, scroll, shallow, prefetch, locale, ...other } = props;
+export const NextLinkComposed = forwardRef(function NextLinkComposed(
+  props,
+  ref
+) {
+  const {
+    to,
+    linkAs,
+    href,
+    replace,
+    scroll,
+    shallow,
+    prefetch,
+    locale,
+    ...other
+  } = props;
 
   return (
     <NextLink
@@ -42,9 +64,9 @@ NextLinkComposed.propTypes = {
 
 // A styled version of the Next.js Link component:
 // https://nextjs.org/docs/#with-link
-const Link = React.forwardRef(function Link(props, ref) {
+const Link = forwardRef(function Link(props, ref) {
   const {
-    activeClassName = 'active',
+    activeClassName = "active",
     as: linkAs,
     className: classNameProps,
     href,
@@ -54,13 +76,14 @@ const Link = React.forwardRef(function Link(props, ref) {
   } = props;
 
   const router = useRouter();
-  const pathname = typeof href === 'string' ? href : href.pathname;
+  const pathname = typeof href === "string" ? href : href.pathname;
   const className = clsx(classNameProps, {
     [activeClassName]: router.pathname === pathname && activeClassName,
   });
 
   const isExternal =
-    typeof href === 'string' && (href.indexOf('http') === 0 || href.indexOf('mailto:') === 0);
+    typeof href === "string" &&
+    (href.indexOf("http") === 0 || href.indexOf("mailto:") === 0);
 
   if (isExternal) {
     if (noLinkStyle) {
@@ -71,7 +94,9 @@ const Link = React.forwardRef(function Link(props, ref) {
   }
 
   if (noLinkStyle) {
-    return <NextLinkComposed className={className} ref={ref} to={href} {...other} />;
+    return (
+      <NextLinkComposed className={className} ref={ref} to={href} {...other} />
+    );
   }
 
   return (
